@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Poetry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f1ea;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header Style */
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #1b4332;
+            border-bottom: 2px solid #2d6a4f;
+            padding-bottom: 10px;
+        }
+
+        /* Poetry Card Container */
+        .poetry-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border-right: 5px solid #2d6a4f;
+        }
+
+        .poetry-title {
+            font-size: 1.5rem;
+            color: #2d6a4f;
+            margin-bottom: 20px;
+        }
+
+        .couplet {
+            font-size: 1.6rem;
+            line-height: 2.2;
+            color: #111;
+            direction: rtl;
+        }
+
+        .poet-name {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+            direction: rtl;
+        }
+
+        /* Modal / Popup Styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-box {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-box h2 {
+            color: #1b4332;
+            margin-bottom: 15px;
+        }
+
+        .modal-box p {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .close-btn {
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: #1b4332;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Popup Modal -->
+    <div class="modal-overlay" id="welcomeModal">
+        <div class="modal-box">
+            <h2>Welcome to Real Poetry</h2>
+            <p>Aap ko hamari website par khushamdeed!</p>
+            <button class="close-btn" onclick="closeModal()">Enter Website</button>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <header>
+        <h1>Real Poetry</h1>
+    </header>
+
+    <main class="poetry-container">
+        <div class="poetry-title">اسلامی شاعری</div>
+        <div class="couplet">
+            کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں<br>
+            یہ جہاں چیز ہے کیا لوح و قلم تیرے ہیں
+        </div>
+        <div class="poet-name">— علامہ اقبال</div>
+    </main>
+
+    <script>
+        function closeModal() {
+            const modal = document.getElementById('welcomeModal');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
