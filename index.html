@@ -12,8 +12,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Smoky Light Blue Background Gradient */
         body {
-            background-color: #f4f1ea;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
             color: #333;
             display: flex;
             flex-direction: column;
@@ -25,33 +26,35 @@
 
         /* Header Style */
         header {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
         h1 {
             font-size: 2.8rem;
-            color: #1b4332;
-            border-bottom: 2px solid #2d6a4f;
+            color: #1e3d59;
+            border-bottom: 2px solid #17b978;
             padding-bottom: 10px;
         }
 
         /* Poetry Card Container */
         .poetry-container {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            padding: 40px;
-            max-width: 600px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            padding: 30px 40px;
+            max-width: 650px;
             width: 100%;
             text-align: center;
-            border-right: 5px solid #2d6a4f;
+            border-right: 5px solid #17b978;
+            margin-bottom: 20px;
         }
 
         .poetry-title {
             font-size: 1.5rem;
-            color: #2d6a4f;
+            color: #1e3d59;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .couplet {
@@ -62,10 +65,18 @@
         }
 
         .poet-name {
-            margin-top: 20px;
+            margin-top: 15px;
             font-style: italic;
-            color: #666;
+            color: #555;
             direction: rtl;
+        }
+
+        /* Divider Line */
+        hr {
+            border: none;
+            height: 1px;
+            background: #dcdcdc;
+            margin: 25px 0;
         }
 
         /* Modal / Popup Styling */
@@ -75,7 +86,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -95,7 +106,7 @@
         }
 
         .modal-box h2 {
-            color: #1b4332;
+            color: #1e3d59;
             margin-bottom: 15px;
         }
 
@@ -106,7 +117,7 @@
         }
 
         .close-btn {
-            background-color: #2d6a4f;
+            background-color: #17b978;
             color: white;
             border: none;
             padding: 10px 25px;
@@ -117,7 +128,7 @@
         }
 
         .close-btn:hover {
-            background-color: #1b4332;
+            background-color: #139e66;
         }
     </style>
 </head>
@@ -139,9 +150,20 @@
 
     <main class="poetry-container">
         <div class="poetry-title">اسلامی شاعری</div>
+        
+        <!-- First Couplet -->
         <div class="couplet">
             کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں<br>
             یہ جہاں چیز ہے کیا لوح و قلم تیرے ہیں
+        </div>
+        <div class="poet-name">— علامہ اقبال</div>
+
+        <hr>
+
+        <!-- Second Couplet -->
+        <div class="couplet">
+            نگاہِ عشق و مستی میں وہی اوّل، وہی آخر<br>
+            وہی قرآن، وہی فرقاں، وہی یٰسیں، وہی طٰہٰ
         </div>
         <div class="poet-name">— علامہ اقبال</div>
     </main>
