@@ -12,9 +12,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Attractive Soft Navy & Cool Slate Background */
+        /* Dark Navy Background Gradient */
         body {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
             color: #f8fafc;
             display: flex;
             flex-direction: column;
@@ -38,19 +38,18 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        /* Poetry Card Container */
+        /* Center Card Container (Lighter Slate Shade for Contrast) */
         .poetry-container {
-            background: rgba(30, 41, 59, 0.85);
-            border: 1px solid rgba(251, 191, 36, 0.3);
+            background: #1e293b;
+            border: 1px solid #fbbf24;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             padding: 35px 40px;
             max-width: 650px;
             width: 100%;
             text-align: center;
-            border-right: 5px solid #fbbf24;
+            border-right: 6px solid #fbbf24;
             margin-bottom: 20px;
-            backdrop-filter: blur(8px);
         }
 
         .poetry-title {
@@ -60,10 +59,34 @@
             font-weight: bold;
         }
 
+        /* Poetry Item Wrapper */
+        .poetry-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Number Badge Style */
+        .poetry-number {
+            background: #f59e0b;
+            color: #0f172a;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
         .couplet {
             font-size: 1.65rem;
             line-height: 2.2;
-            color: #f1f5f9;
+            color: #f8fafc;
             direction: rtl;
         }
 
@@ -151,25 +174,34 @@
         <div class="poetry-title">اسلامی شاعری</div>
         
         <!-- First Couplet -->
-        <div class="couplet">
-            کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں<br>
-            یہ جہاں چیز ہے کیا لوح و قلم تیرے ہیں
+        <div class="poetry-item">
+            <div class="poetry-number">1</div>
+            <div class="couplet">
+                کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں<br>
+                یہ جہاں چیز ہے کیا لوح و قلم تیرے ہیں
+            </div>
         </div>
 
         <hr>
 
         <!-- Second Couplet -->
-        <div class="couplet">
-            نگاہِ عشق و مستی میں وہی اوّل، وہی آخر<br>
-            وہی قرآن، وہی فرقاں، وہی یٰسیں، وہی طٰہٰ
+        <div class="poetry-item">
+            <div class="poetry-number">2</div>
+            <div class="couplet">
+                نگاہِ عشق و مستی میں وہی اوّل، وہی آخر<br>
+                وہی قرآن، وہی فرقاں، وہی یٰسیں، وہی طٰہٰ
+            </div>
         </div>
 
         <hr>
 
         <!-- Third Couplet -->
-        <div class="couplet">
-            محمدؐ کی محبت دینِ حق کی شرطِ اوّل ہے<br>
-            اگر ہو اس میں کچھ خامی تو ایماں بھی نامکمل ہے
+        <div class="poetry-item">
+            <div class="poetry-number">3</div>
+            <div class="couplet">
+                محمدؐ کی محبت دینِ حق کی شرطِ اوّل ہے<br>
+                اگر ہو اس میں کچھ خامی تو ایماں بھی نامکمل ہے
+            </div>
         </div>
     </main>
 
