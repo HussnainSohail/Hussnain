@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Poetry</title>
+    <!-- Urdu Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Dark Navy Background Gradient */
+        /* Deep Emerald Green Rich Gradient */
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+            background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022c22 100%);
             color: #f8fafc;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 30px 15px;
         }
 
         /* Header Style */
         header {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: center;
         }
 
@@ -35,67 +36,62 @@
             color: #fbbf24;
             border-bottom: 2px solid #f59e0b;
             padding-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            letter-spacing: 1px;
         }
 
-        /* Center Card Container */
-        .poetry-container {
-            background: #1e293b;
-            border: 1px solid #fbbf24;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            padding: 35px 40px;
-            max-width: 650px;
-            width: 100%;
-            text-align: center;
-            border-right: 6px solid #fbbf24;
-            margin-bottom: 20px;
-        }
-
-        .poetry-title {
-            font-size: 1.6rem;
-            color: #fbbf24;
-            margin-bottom: 25px;
-            font-weight: bold;
-        }
-
-        /* Poetry Item Wrapper */
-        .poetry-item {
+        /* Main Container for Cards Grid */
+        .poetry-grid {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 22px;
+            max-width: 650px;
+            width: 100%;
+        }
+
+        /* Individual Card Layout */
+        .poetry-card {
+            background: rgba(6, 78, 59, 0.7);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+            padding: 25px 30px;
+            text-align: center;
             position: relative;
+            border-right: 5px solid #fbbf24;
+            backdrop-filter: blur(8px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .poetry-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(251, 191, 36, 0.2);
+            border-color: #fbbf24;
         }
 
         /* Number Badge Style */
         .poetry-number {
-            background: #f59e0b;
-            color: #0f172a;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #022c22;
             font-weight: bold;
             font-size: 1rem;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            margin: 0 auto 15px auto;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.4);
         }
 
+        /* Urdu Poetry Font Style */
         .couplet {
-            font-size: 1.65rem;
-            line-height: 2.2;
-            color: #f8fafc;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.5rem;
+            line-height: 2.6;
+            color: #fef3c7;
             direction: rtl;
-        }
-
-        /* Divider Line */
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(251, 191, 36, 0.4), transparent);
-            margin: 25px 0;
         }
 
         /* Modal / Popup Styling */
@@ -105,7 +101,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -115,12 +111,12 @@
         }
 
         .modal-box {
-            background: #1e293b;
+            background: #064e3b;
             border: 1px solid #fbbf24;
             padding: 30px 40px;
-            border-radius: 12px;
+            border-radius: 14px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             max-width: 400px;
             width: 90%;
         }
@@ -131,14 +127,14 @@
         }
 
         .modal-box p {
-            color: #cbd5e1;
+            color: #ecfdf5;
             margin-bottom: 25px;
             font-size: 1.1rem;
         }
 
         .close-btn {
-            background-color: #f59e0b;
-            color: #0f172a;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #022c22;
             font-weight: bold;
             border: none;
             padding: 12px 28px;
@@ -149,8 +145,7 @@
         }
 
         .close-btn:hover {
-            background-color: #d97706;
-            color: #ffffff;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -170,11 +165,9 @@
         <h1>Real Poetry</h1>
     </header>
 
-    <main class="poetry-container">
-        <div class="poetry-title">اسلامی شاعری</div>
-        
-        <!-- First Couplet -->
-        <div class="poetry-item">
+    <main class="poetry-grid">
+        <!-- Card 1 -->
+        <div class="poetry-card">
             <div class="poetry-number">1</div>
             <div class="couplet">
                 کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں<br>
@@ -182,10 +175,8 @@
             </div>
         </div>
 
-        <hr>
-
-        <!-- Second Couplet -->
-        <div class="poetry-item">
+        <!-- Card 2 -->
+        <div class="poetry-card">
             <div class="poetry-number">2</div>
             <div class="couplet">
                 نگاہِ عشق و مستی میں وہی اوّل، وہی آخر<br>
@@ -193,10 +184,8 @@
             </div>
         </div>
 
-        <hr>
-
-        <!-- Third Couplet -->
-        <div class="poetry-item">
+        <!-- Card 3 -->
+        <div class="poetry-card">
             <div class="poetry-number">3</div>
             <div class="couplet">
                 محمدؐ کی محبت دینِ حق کی شرطِ اوّل ہے<br>
@@ -204,10 +193,8 @@
             </div>
         </div>
 
-        <hr>
-
-        <!-- Fourth Couplet (New) -->
-        <div class="poetry-item">
+        <!-- Card 4 -->
+        <div class="poetry-card">
             <div class="poetry-number">4</div>
             <div class="couplet">
                 ہر خطا پہ شرمسار ہوں، میں بندۂ گناہگار ہوں<br>
@@ -215,10 +202,8 @@
             </div>
         </div>
 
-        <hr>
-
-        <!-- Fifth Couplet (New) -->
-        <div class="poetry-item">
+        <!-- Card 5 -->
+        <div class="poetry-card">
             <div class="poetry-number">5</div>
             <div class="couplet">
                 دل کو روشن کر دے نورِ مصطفیٰؐ سے اے خدا<br>
@@ -226,14 +211,48 @@
             </div>
         </div>
 
-        <hr>
-
-        <!-- Sixth Couplet (New) -->
-        <div class="poetry-item">
+        <!-- Card 6 -->
+        <div class="poetry-card">
             <div class="poetry-number">6</div>
             <div class="couplet">
                 سجدہ وہ ہے جس میں ہو خشوع و خضوع کا اثر<br>
                 سر جھکے تو روح بھی ہو جائے پاک و معتبر
+            </div>
+        </div>
+
+        <!-- Card 7 (New) -->
+        <div class="poetry-card">
+            <div class="poetry-number">7</div>
+            <div class="couplet">
+                نہ تھا کچھ تو خدا تھا، کچھ نہ ہوتا تو خدا ہوتا<br>
+                ڈبویا مجھ کو ہونے نے، نہ ہوتا میں تو کیا ہوتا
+            </div>
+        </div>
+
+        <!-- Card 8 (New) -->
+        <div class="poetry-card">
+            <div class="poetry-number">8</div>
+            <div class="couplet">
+                رحمت سے تیری ناامید نہیں بندہ تیرے کرم کا<br>
+                تیرے در کے سوا بتا، کہاں جائے یہ سائل تیرا
+            </div>
+        </div>
+
+        <!-- Card 9 (New) -->
+        <div class="poetry-card">
+            <div class="poetry-number">9</div>
+            <div class="couplet">
+                خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے<br>
+                خدا بندے سے خود پوچھے، بتا تیری رضا کیا ہے
+            </div>
+        </div>
+
+        <!-- Card 10 (New) -->
+        <div class="poetry-card">
+            <div class="poetry-number">10</div>
+            <div class="couplet">
+                ہزاروں روزے، لاکھوں سجدے، اور دعاؤں کا سفر<br>
+                خلوصِ دل نہ ہو تو سب کچھ بے اثر ہے بے اثر
             </div>
         </div>
     </main>
