@@ -1,271 +1,286 @@
 <!DOCTYPE html>
 <html lang="ur">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Poetry</title>
-    <!-- Urdu Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Poetry</title>
+  <!-- Urdu Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Deep Emerald Green Rich Gradient */
-        body {
-            background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022c22 100%);
-            color: #f8fafc;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 30px 15px;
-        }
+    /* Deep Emerald Green Rich Gradient */
+    body {
+      background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022c22 100%);
+      color: #f8fafc;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
 
-        /* Header Style */
-        header {
-            margin-bottom: 35px;
-            text-align: center;
-        }
+    /* Header Style */
+    header {
+      margin-bottom: 35px;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 2.8rem;
-            color: #fbbf24;
-            border-bottom: 2px solid #f59e0b;
-            padding-bottom: 10px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            letter-spacing: 1px;
-        }
+    h1 {
+      color: #fbbf24;
+      border-bottom: 2px solid #f59e0b;
+      padding-bottom: 10px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
+    }
 
-        /* Main Container for Cards Grid */
-        .poetry-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            max-width: 650px;
-            width: 100%;
-        }
+    /* Main Container for Cards Grid */
+    .poetry-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      max-width: 650px;
+      width: 100%;
+    }
 
-        /* Individual Card Layout */
-        .poetry-card {
-            background: rgba(6, 78, 59, 0.7);
-            border: 1px solid rgba(251, 191, 36, 0.35);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-            padding: 25px 30px;
-            text-align: center;
-            position: relative;
-            border-right: 5px solid #fbbf24;
-            backdrop-filter: blur(8px);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    /* Individual Card Layout */
+    .poetry-card {
+      background: rgba(6, 78, 59, 0.7);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      padding: 25px 30px;
+      text-align: center;
+      position: relative;
+      border-right: 5px solid #fbbf24;
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .poetry-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(251, 191, 36, 0.2);
-            border-color: #fbbf24;
-        }
+    .poetry-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(251, 191, 36, 0.2);
+      border-color: #fbbf24;
+    }
 
-        /* Number Badge Style */
-        .poetry-number {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #022c22;
-            font-weight: bold;
-            font-size: 1rem;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.4);
-        }
+    /* Number Badge Style */
+    .poetry-number {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #022c22;
+      font-weight: bold;
+      font-size: 1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px auto;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    }
 
-        /* Urdu Poetry Font Style */
-        .couplet {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 1.5rem;
-            line-height: 2.6;
-            color: #fef3c7;
-            direction: rtl;
-        }
-
-        /* Modal / Popup Styling */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-box {
-            background: #064e3b;
-            border: 1px solid #fbbf24;
-            padding: 30px 40px;
-            border-radius: 14px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .modal-box h2 {
-            color: #fbbf24;
-            margin-bottom: 15px;
-        }
-
-        .modal-box p {
-            color: #ecfdf5;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-
-        .close-btn {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #022c22;
-            font-weight: bold;
-            border: none;
-            padding: 12px 28px;
-            font-size: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .close-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+    /* Urdu Poetry Font Style */
+    .couplet {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 1.5rem;
+      line-height: 2.6;
+      color: #fef3c7;
+      direction: rtl;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Popup Modal -->
-    <div class="modal-overlay" id="welcomeModal">
-        <div class="modal-box">
-            <h2>Welcome to Real Poetry</h2>
-            <p>Aap ko hamari website par khushamdeed!</p>
-            <button class="close-btn" onclick="closeModal()">Enter Website</button>
-        </div>
+  <header>
+    <h1>Real Poetry</h1>
+  </header>
+
+  <main class="poetry-grid">
+    <!-- Card 1 -->
+    <div class="poetry-card">
+      <div class="poetry-number">1</div>
+      <div class="couplet">
+        کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں <br>
+        یہ جہاں چیز ہے کیا لوح و قلم تیرے ہیں
+      </div>
     </div>
 
-    <!-- Main Website Content -->
-    <header>
-        <h1>Real Poetry</h1>
-    </header>
+    <!-- Card 2 -->
+    <div class="poetry-card">
+      <div class="poetry-number">2</div>
+      <div class="couplet">
+        نگاہِ عشق و مستی میں وہی اوّل، وہی آخر <br>
+        وہی قرآن، وہی فرقاں، وہی یٰسیں، وہی طٰہٰ
+      </div>
+    </div>
 
-    <main class="poetry-grid">
-        <!-- Card 1 -->
-        <div class="poetry-card">
-            <div class="poetry-number">1</div>
-            <div class="couplet">
-                کی محمدؐ سے وفا تو نے تو ہم تیرے ہیں<br>
-                یہ جہاں چیز ہے کیا لوح و قلم تیرے ہیں
-            </div>
-        </div>
+    <!-- Card 3 -->
+    <div class="poetry-card">
+      <div class="poetry-number">3</div>
+      <div class="couplet">
+        محمدؐ کی محبت دینِ حق کی شرطِ اوّل ہے <br>
+        اگر ہو اس میں کچھ خامی تو ایماں بھی نامکمل ہے
+      </div>
+    </div>
 
-        <!-- Card 2 -->
-        <div class="poetry-card">
-            <div class="poetry-number">2</div>
-            <div class="couplet">
-                نگاہِ عشق و مستی میں وہی اوّل، وہی آخر<br>
-                وہی قرآن، وہی فرقاں، وہی یٰسیں، وہی طٰہٰ
-            </div>
-        </div>
+    <!-- Card 4 -->
+    <div class="poetry-card">
+      <div class="poetry-number">4</div>
+      <div class="couplet">
+        ہر خطا پہ شرمسار ہوں، میں بندۂ گناہگار ہوں <br>
+        تو ہی غفور، تو ہی رحیم، میں تیرے کرم کا طلبگار ہوں
+      </div>
+    </div>
 
-        <!-- Card 3 -->
-        <div class="poetry-card">
-            <div class="poetry-number">3</div>
-            <div class="couplet">
-                محمدؐ کی محبت دینِ حق کی شرطِ اوّل ہے<br>
-                اگر ہو اس میں کچھ خامی تو ایماں بھی نامکمل ہے
-            </div>
-        </div>
+    <!-- Card 5 -->
+    <div class="poetry-card">
+      <div class="poetry-number">5</div>
+      <div class="couplet">
+        دل کو روشن کر دے نورِ مصطفیٰؐ سے اے خدا <br>
+        ہم کو سیدھا راستہ دکھلا ہدایت کی ادا
+      </div>
+    </div>
 
-        <!-- Card 4 -->
-        <div class="poetry-card">
-            <div class="poetry-number">4</div>
-            <div class="couplet">
-                ہر خطا پہ شرمسار ہوں، میں بندۂ گناہگار ہوں<br>
-                تو ہی غفور، تو ہی رحیم، میں تیرے کرم کا طلبگار ہوں
-            </div>
-        </div>
+    <!-- Card 6 -->
+    <div class="poetry-card">
+      <div class="poetry-number">6</div>
+      <div class="couplet">
+        سجدہ وہ ہے جس میں ہو خشوع و خضوع کا اثر <br>
+        سر جھکے تو روح بھی ہو جائے پاک و معتبر
+      </div>
+    </div>
 
-        <!-- Card 5 -->
-        <div class="poetry-card">
-            <div class="poetry-number">5</div>
-            <div class="couplet">
-                دل کو روشن کر دے نورِ مصطفیٰؐ سے اے خدا<br>
-                ہم کو سیدھا راستہ دکھلا ہدایت کی ادا
-            </div>
-        </div>
+    <!-- Card 7 -->
+    <div class="poetry-card">
+      <div class="poetry-number">7</div>
+      <div class="couplet">
+        نہ تھا کچھ تو خدا تھا، کچھ نہ ہوتا تو خدا ہوتا <br>
+        ڈبویا مجھ کو ہونے نے، نہ ہوتا میں تو کیا ہوتا
+      </div>
+    </div>
 
-        <!-- Card 6 -->
-        <div class="poetry-card">
-            <div class="poetry-number">6</div>
-            <div class="couplet">
-                سجدہ وہ ہے جس میں ہو خشوع و خضوع کا اثر<br>
-                سر جھکے تو روح بھی ہو جائے پاک و معتبر
-            </div>
-        </div>
+    <!-- Card 8 -->
+    <div class="poetry-card">
+      <div class="poetry-number">8</div>
+      <div class="couplet">
+        رحمت سے تیری ناامید نہیں بندہ تیرے کرم کا <br>
+        تیرے در کے سوا بتا، کہاں جائے یہ سائل تیرا
+      </div>
+    </div>
 
-        <!-- Card 7 (New) -->
-        <div class="poetry-card">
-            <div class="poetry-number">7</div>
-            <div class="couplet">
-                نہ تھا کچھ تو خدا تھا، کچھ نہ ہوتا تو خدا ہوتا<br>
-                ڈبویا مجھ کو ہونے نے، نہ ہوتا میں تو کیا ہوتا
-            </div>
-        </div>
+    <!-- Card 9 -->
+    <div class="poetry-card">
+      <div class="poetry-number">9</div>
+      <div class="couplet">
+        خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے <br>
+        خدا بندے سے خود پوچھے، بتا تیری رضا کیا ہے
+      </div>
+    </div>
 
-        <!-- Card 8 (New) -->
-        <div class="poetry-card">
-            <div class="poetry-number">8</div>
-            <div class="couplet">
-                رحمت سے تیری ناامید نہیں بندہ تیرے کرم کا<br>
-                تیرے در کے سوا بتا، کہاں جائے یہ سائل تیرا
-            </div>
-        </div>
+    <!-- Card 10 -->
+    <div class="poetry-card">
+      <div class="poetry-number">10</div>
+      <div class="couplet">
+        ہزاروں روزے، لاکھوں سجدے، اور دعاؤں کا سفر <br>
+        خلوصِ دل نہ ہو تو سب کچھ بے اثر ہے بے اثر
+      </div>
+    </div>
 
-        <!-- Card 9 (New) -->
-        <div class="poetry-card">
-            <div class="poetry-number">9</div>
-            <div class="couplet">
-                خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے<br>
-                خدا بندے سے خود پوچھے، بتا تیری رضا کیا ہے
-            </div>
-        </div>
+    <!-- Card 11 -->
+    <div class="poetry-card">
+      <div class="poetry-number">11</div>
+      <div class="couplet">
+        ستاروں سے آگے جہاں اور بھی ہیں <br>
+        ابھی عشق کے امتحان اور بھی ہیں
+      </div>
+    </div>
 
-        <!-- Card 10 (New) -->
-        <div class="poetry-card">
-            <div class="poetry-number">10</div>
-            <div class="couplet">
-                ہزاروں روزے، لاکھوں سجدے، اور دعاؤں کا سفر<br>
-                خلوصِ دل نہ ہو تو سب کچھ بے اثر ہے بے اثر
-            </div>
-        </div>
-    </main>
+    <!-- Card 12 -->
+    <div class="poetry-card">
+      <div class="poetry-number">12</div>
+      <div class="couplet">
+        ہزاروں خواہشیں ایسی کہ ہر خواہش پہ دم نکلے <br>
+        بہت نکلے میرے ارمان لیکن پھر بھی کم نکلے
+      </div>
+    </div>
 
-    <script>
-        function closeModal() {
-            const modal = document.getElementById('welcomeModal');
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        }
-    </script>
+    <!-- Card 13 -->
+    <div class="poetry-card">
+      <div class="poetry-number">13</div>
+      <div class="couplet">
+        پیوستہ رہ شجر سے، امیدِ بہار رکھ <br>
+        تندئی بادِ مخالف سے نہ گھبرا اے عقاب
+      </div>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="poetry-card">
+      <div class="poetry-number">14</div>
+      <div class="couplet">
+        تیرے آزاد بندوں کی نہ یہ دنیا نہ وہ دنیا <br>
+        یہاں مرنے کی پابندی، وہاں جینے کی پابندی
+      </div>
+    </div>
+
+    <!-- Card 15 -->
+    <div class="poetry-card">
+      <div class="poetry-number">15</div>
+      <div class="couplet">
+        میرے جنوں کا نتیجہ کچھ بھی ہو لیکن <br>
+        سجدہ کروں تو تیرے آستانے پر کروں
+      </div>
+    </div>
+
+    <!-- Card 16 -->
+    <div class="poetry-card">
+      <div class="poetry-number">16</div>
+      <div class="couplet">
+        عمل سے زندگی بنتی ہے جنت بھی جہنم بھی <br>
+        یہ خاکی اپنی فطرت میں نہ نوری ہے نہ ناری ہے
+      </div>
+    </div>
+
+    <!-- Card 17 -->
+    <div class="poetry-card">
+      <div class="poetry-number">17</div>
+      <div class="couplet">
+        مانا کہ اس زمین کو نصرت نہ مل سکی <br>
+        لیکن خدا کے فضل کی حد بھی تو کچھ نہیں
+      </div>
+    </div>
+
+    <!-- Card 18 -->
+    <div class="poetry-card">
+      <div class="poetry-number">18</div>
+      <div class="couplet">
+        دل ناداں تجھے ہوا کیا ہے <br>
+        آخر اس درد کی دوا کیا ہے
+      </div>
+    </div>
+
+    <!-- Card 19 -->
+    <div class="poetry-card">
+      <div class="poetry-number">19</div>
+      <div class="couplet">
+        ہم کو معلوم ہے جنت کی حقیقت لیکن <br>
+        دل کے خوش رکھنے کو غالبؔ یہ خیال اچھا ہے
+      </div>
+    </div>
+
+    <!-- Card 20 -->
+    <div class="poetry-card">
+      <div class="poetry-number">20</div>
+      <div class="couplet">
+        تیرے کرم کا سزاوار تو نہیں لیکن <br>
+        تیرے سوا کوئی دامن کشا نہیں ملتا
+      </div>
+    </div>
+  </main>
 
 </body>
 </html>
